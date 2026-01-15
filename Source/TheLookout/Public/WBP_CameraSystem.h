@@ -18,7 +18,7 @@ class THELOOKOUT_API UWBP_CameraSystem : public UUserWidget
 	
 public:
 	
-	//Adding button 
+	//Adding widget components
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 	UButton* SwitchCamera_1;
 	
@@ -27,6 +27,7 @@ public:
 	
 	virtual void NativeConstruct() override;
 	
+	//Creating functions
 	UFUNCTION()
 	void OnButtonClicked();
 	

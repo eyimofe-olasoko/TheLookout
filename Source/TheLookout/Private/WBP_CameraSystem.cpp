@@ -12,6 +12,7 @@ void UWBP_CameraSystem::NativeConstruct()
 	SwitchCamera_1->OnClicked.AddDynamic(this, &UWBP_CameraSystem::OnButtonClicked);
 }
 
+// Intializing the OnButtonClicked event
 void UWBP_CameraSystem::OnButtonClicked()
 {
 	//Setting the text
