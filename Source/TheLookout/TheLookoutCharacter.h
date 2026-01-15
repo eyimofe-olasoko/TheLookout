@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
+#include "WBP_CameraSystem.h"
+#include "Blueprint/UserWidget.h"
 #include "TheLookoutCharacter.generated.h"
 
 class UInputComponent;
@@ -49,8 +51,17 @@ protected:
 	UPROPERTY(EditAnywhere, Category ="Input")
 	class UInputAction* MouseLookAction;
 	
+	virtual void BeginPlay() override;
+	
 public:
 	ATheLookoutCharacter();
+	
+	UPROPERTY(editAnywhere, Category = "UI")
+	TSubclassOf<class UWBP_CameraSystem> CameraSystemWidgetClass;
+	
+	UPROPERTY()
+	class UWBP_CameraSystem* CameraSystemWidget;
+	
 
 protected:
 

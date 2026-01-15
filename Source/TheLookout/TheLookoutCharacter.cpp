@@ -2,6 +2,8 @@
 
 #include "TheLookoutCharacter.h"
 #include "Animation/AnimInstance.h"
+#include "WBP_CameraSystem.h"
+#include "Blueprint/UserWidget.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/SkeletalMeshComponent.h"
@@ -66,6 +68,17 @@ void ATheLookoutCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 	}
 }
 
+void ATheLookoutCharacter::BeginPlay()
+{
+	//Create the widget
+	CameraSystemWidget = CreateWidget<UWBP_CameraSystem>(GetWorld(), CameraSystemWidgetClass);
+	
+	//Checking the widget was created successfully and then adding to the screen
+	if (CameraSystemWidget)
+	{
+		CameraSystemWidget->AddToViewport();
+	}
+}
 
 void ATheLookoutCharacter::MoveInput(const FInputActionValue& Value)
 {
