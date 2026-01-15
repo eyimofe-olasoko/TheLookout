@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "CameraSwitcher.generated.h"
 
+class UCameraComponent;
+
 UCLASS()
 class THELOOKOUT_API ACameraSwitcher : public AActor
 {
@@ -22,5 +24,14 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
+	UCameraComponent* MainCamera;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
+	UCameraComponent* SecondCamera;
+	
+	//Creating functions to activate the correct cameras
+	void ActivateMainCamera();
+	void ActivateSecondCamera();
 };

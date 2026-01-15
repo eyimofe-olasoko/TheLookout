@@ -6,6 +6,7 @@
 #include "Blueprint/UserWidget.h"
 #include "Components/Button.h"
 #include "Components/TextBlock.h"
+#include "CameraSwitcher.h"
 #include "WBP_CameraSystem.generated.h"
 
 /**
@@ -20,7 +21,10 @@ public:
 	
 	//Adding widget components
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
-	UButton* SwitchCamera_1;
+	UButton* SwitchCameras;
+	
+	UPROPERTY(BlueprintreadWrite)
+	ACameraSwitcher* CameraSwitcher;
 	
 	//UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
 	//UTextBlock* TestText;
