@@ -17,6 +17,10 @@ class THELOOKOUT_API UWBP_CameraSystem : public UUserWidget
 {
 	GENERATED_BODY()
 	
+private:
+	
+	int CameraID = 0;
+	
 public:
 	
 	//Adding widget components

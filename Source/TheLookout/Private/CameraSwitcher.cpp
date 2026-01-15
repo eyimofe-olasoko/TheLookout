@@ -13,11 +13,11 @@ ACameraSwitcher::ACameraSwitcher()
 	//Intializing the camera components
 	MainCamera = CreateDefaultSubobject<UCameraComponent>(FName("MainCamera"));
 	
-	RootComponent = MainCamera;
+	MainCamera->SetupAttachment(RootComponent);
 	
 	SecondCamera = CreateDefaultSubobject<UCameraComponent>(FName("SecondCamera"));
 	
-	SecondCamera->SetupAttachment(MainCamera);
+	SecondCamera->SetupAttachment(RootComponent);
 }
 
 // Called when the game starts or when spawned
