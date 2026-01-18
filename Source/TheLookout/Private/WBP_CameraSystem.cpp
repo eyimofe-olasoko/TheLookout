@@ -57,6 +57,7 @@ void UWBP_CameraSystem::OnButtonClicked()
 			//Resetting CameraID to 0 so it switches back the first camera
 			CameraID = 0;
 		}
+		
 		//On screen debug
 		//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Black, TEXT("Is it working?"));
 		
