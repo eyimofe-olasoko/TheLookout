@@ -32,6 +32,11 @@ class ATheLookoutCharacter : public ACharacter
 	/** First person camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FirstPersonCameraComponent;
+	
+private:
+	
+	//Creating 
+	//APlayerController* GetPlayerController;
 
 protected:
 

@@ -44,6 +44,10 @@ ATheLookoutCharacter::ATheLookoutCharacter()
 	// Configure character movement
 	GetCharacterMovement()->BrakingDecelerationFalling = 1500.0f;
 	GetCharacterMovement()->AirControl = 0.5f;
+	
+	//Getting the player controller
+	//GetPlayerController = Cast<APlayerController>(GetController());
+	
 }
 
 void ATheLookoutCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -71,12 +75,16 @@ void ATheLookoutCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 void ATheLookoutCharacter::BeginPlay()
 {
 	//Create the widget
-	CameraSystemWidget = CreateWidget<UWBP_CameraSystem>(GetWorld(), CameraSystemWidgetClass);
+	//CameraSystemWidget = CreateWidget<UWBP_CameraSystem>(GetWorld(), CameraSystemWidgetClass);
+	
+	//Setting the input mode to UI only and add mouse cursor
+	//GetPlayerController->SetInputMode(FInputModeUIOnly());
+	//GetPlayerController->SetShowMouseCursor(true);
 	
 	//Checking the widget was created successfully and then adding to the screen
 	if (CameraSystemWidget)
 	{
-		CameraSystemWidget->AddToViewport();
+		//CameraSystemWidget->AddToViewport();
 	}
 }
 

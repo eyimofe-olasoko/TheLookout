@@ -12,7 +12,8 @@ void UWBP_CameraSystem::NativeConstruct()
 	Super::NativeConstruct();
 	
 	//Adding the on clicked event for our button
-	SwitchCameras->OnClicked.AddDynamic(this, &UWBP_CameraSystem::OnButtonClicked);
+	SwitchCameras->OnClicked.AddDynamic(this, &UWBP_CameraSystem::OnSwitchCameraButtonClicked);
+	BackButton->OnClicked.AddDynamic(this, &UWBP_CameraSystem::OnBackButtonClicked);
 	
 	//Getting actor of class
 	CameraSwitcher = Cast<ACameraSwitcher>
@@ -22,10 +23,12 @@ void UWBP_CameraSystem::NativeConstruct()
 			ACameraSwitcher::StaticClass()
 		)
 	);
+	
+	PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 }
 
 // Intializing the OnButtonClicked event
-void UWBP_CameraSystem::OnButtonClicked()
+void UWBP_CameraSystem::OnSwitchCameraButtonClicked()
 {
 	//Setting the text
 	//TestText->SetText(FText::FromString("Testing the text"));
@@ -60,9 +63,17 @@ void UWBP_CameraSystem::OnButtonClicked()
 		
 		//On screen debug
 		//GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Black, TEXT("Is it working?"));
-		
-		
-		
 	}
 
+}
+
+
+void UWBP_CameraSystem::OnBackButtonClicked()
+{
+	//Setting the input mode to game only
+	PlayerController->SetInputMode(FInputModeGameOnly());
+	PlayerController->SetShowMouseCursor(false);
+	
+	//Removing the widget from the screen
+	RemoveFromParent();
 }

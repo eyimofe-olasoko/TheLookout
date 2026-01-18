@@ -21,7 +21,11 @@ private:
 	
 	int CameraID = 0;
 	
+	APlayerController* PlayerController;
+	
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	UButton* BackButton;
 	
 	//Adding widget components
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
@@ -37,6 +41,9 @@ public:
 	
 	//Creating functions
 	UFUNCTION()
-	void OnButtonClicked();
+	void OnSwitchCameraButtonClicked();
+	
+	UFUNCTION()
+	void OnBackButtonClicked();
 	
 };
